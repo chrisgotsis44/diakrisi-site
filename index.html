@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Διάκριση · Φροντιστήριο Μέσης Εκπαίδευσης στην Αργυρούπολη</title>
+  <meta name="description" content="Φροντιστήριο Διάκριση στην Αργυρούπολη: Γ΄ Γυμνασίου, Α΄, Β΄ και Γ΄ Λυκείου, θερινή προετοιμασία. Ομοιογενή τμήματα, διαγωνίσματα προσομοίωσης, συνεχής ενημέρωση γονέων. Τηλ. 210 994 6098.">
+  <meta name="theme-color" content="#0F172A">
+
+  <!-- Google Fonts: η Inter καλύπτει τα ελληνικά, η Plus Jakarta Sans τα λατινικά/αριθμούς των τίτλων -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =========================================================
+     SVG SPRITE — όλα τα εικονίδια inline, χωρίς εξωτερικά icon fonts
+     ========================================================= -->
+<svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5M22 10v6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-exam" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+<!-- =========================================================
+     1. NAVBAR — sticky, glassmorphic
+     ========================================================= -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <!-- Για το πραγματικό λογότυπο: αντικαταστήστε το .brand__mark με
+         <img src="https://www.e-diakrisi.gr/sites/default/files/logo.png" alt="Διάκριση"> -->
+    <a class="brand" href="#top" aria-label="Διάκριση — αρχική">
+      <span class="brand__mark" aria-hidden="true">Δ</span>
+      <span class="brand__text">
+        <strong>Διάκριση</strong>
+        <small>Φροντιστήριο Μέσης Εκπαίδευσης</small>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Κύρια πλοήγηση">
+      <a href="#programmata">Προγράμματα</a>
+      <a href="#giati">Γιατί Διάκριση</a>
+      <a href="#epityxies">Επιτυχίες</a>
+      <a href="#epikoinonia">Επικοινωνία</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="phone-badge" href="tel:+302109946098">
+        <svg class="icon"><use href="#i-phone"/></svg>
+        <span>210 994 6098</span>
+      </a>
+      <a class="btn btn--primary btn--sm nav__cta" href="#forma">Κλείστε Ραντεβού</a>
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="drawer">
+        <svg class="icon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer-overlay" id="drawerOverlay" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Μενού" inert>
+  <div class="drawer__head">
+    <span class="brand__text"><strong>Διάκριση</strong><small>Για μαθητές που έχουν στόχους</small></span>
+    <button class="nav__toggle nav__toggle--close" id="drawerClose" type="button" aria-label="Κλείσιμο μενού">
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+  </div>
+  <nav class="drawer__links" aria-label="Πλοήγηση κινητού">
+    <a href="#programmata">Προγράμματα</a>
+    <a href="#giati">Γιατί Διάκριση</a>
+    <a href="#epityxies">Επιτυχίες</a>
+    <a href="#epikoinonia">Επικοινωνία</a>
+  </nav>
+  <div class="drawer__foot">
+    <a class="btn btn--primary btn--block" href="#forma">Κλείστε Ραντεβού</a>
+    <a class="btn btn--ghost btn--block" href="tel:+302109946098">
+      <svg class="icon"><use href="#i-phone"/></svg> 210 994 6098
+    </a>
+    <p class="drawer__hours">Γραμματεία: καθημερινά 15:30 – 21:30</p>
+  </div>
+</aside>
+
+<main id="main">
+
+  <!-- =========================================================
+       2. HERO — split layout + trust bar
+       ========================================================= -->
+  <section class="hero" id="top">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow eyebrow--light">
+          <span class="eyebrow__dot"></span> Αργυρούπολη · από το 2014
+        </p>
+        <h1>Ο στόχος είναι δικός σου.<br><span class="accent-text">Η μέθοδος, δική μας.</span></h1>
+        <p class="hero__lead">
+          Στη Διάκριση προετοιμάζουμε μαθητές Γυμνασίου και Λυκείου που στοχεύουν σε ιατρικές,
+          πολυτεχνικές, φυσικομαθηματικές, οικονομικές, στρατιωτικές σχολές και σχολές πληροφορικής —
+          με ομοιογενή τμήματα, συνεχή διαγωνίσματα προσομοίωσης και ειλικρινή ενημέρωση των γονέων.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="#forma">
+            Κλείστε Ραντεβού Γνωριμίας <svg class="icon"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn--outline-light btn--lg" href="#programmata">Δείτε τα Προγράμματα</a>
+        </div>
+        <p class="hero__note">
+          <svg class="icon"><use href="#i-check"/></svg>
+          Η ένταξη γίνεται μετά από ραντεβού και σύντομη αξιολόγηση — χωρίς ειδική προετοιμασία.
+        </p>
+      </div>
+
+      <!-- Οπτικό: πραγματικά αποτελέσματα 2026 από e-diakrisi.gr/epityhontes -->
+      <div class="hero__visual" aria-label="Πρώτοι ανά επιστημονικό πεδίο, Πανελλήνιες 2026">
+        <div class="result-board">
+          <div class="result-board__head">
+            <span class="chip chip--amber"><svg class="icon"><use href="#i-award"/></svg> Πανελλήνιες 2026</span>
+            <span class="result-board__title">Οι πρώτοι μας ανά πεδίο</span>
+          </div>
+          <ul class="result-board__list">
+            <li>
+              <span class="result-board__field">2ο</span>
+              <span class="result-board__who"><strong>Τζουράλας Μάριος</strong><small>Ναυπηγών Μηχανολόγων Μηχανικών Ε.Μ.Π.</small></span>
+              <span class="result-board__score">19.040</span>
+            </li>
+            <li>
+              <span class="result-board__field">3ο</span>
+              <span class="result-board__who"><strong>Βέα Νικολέττα</strong><small>Ιατρική Πάτρας</small></span>
+              <span class="result-board__score">19.020</span>
+            </li>
+            <li>
+              <span class="result-board__field">4ο</span>
+              <span class="result-board__who"><strong>Κολέτσου Βασιλική</strong><small>Διεθνών &amp; Ευρωπαϊκών Οικονομικών Σπουδών ΟΠΑ</small></span>
+              <span class="result-board__score">18.540</span>
+            </li>
+          </ul>
+          <a class="result-board__link" href="#epityxies">Όλες οι χρονιές <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="float-card float-card--a">
+          <svg class="icon"><use href="#i-clock"/></svg>
+          <span><strong>Γραμματεία</strong>Καθημερινά 15:30 – 21:30</span>
+        </div>
+        <div class="float-card float-card--b">
+          <span class="float-card__quote">«Τα δύσκολα γίνονται εύκολα!»</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust bar -->
+    <div class="container">
+      <ul class="trust">
+        <li>
+          <span class="trust__num">20+</span>
+          <span class="trust__label">χρόνια διδακτικής εμπειρίας των καθηγητών μας</span>
+        </li>
+        <li>
+          <span class="trust__num">2014</span>
+          <span class="trust__label">δίπλα στους μαθητές της Αργυρούπολης από τότε</span>
+        </li>
+        <li>
+          <span class="trust__icon"><svg class="icon"><use href="#i-users"/></svg></span>
+          <span class="trust__label"><strong>Ομοιογενή τμήματα</strong>περιορισμένα σε αριθμό</span>
+        </li>
+        <li>
+          <span class="trust__icon"><svg class="icon"><use href="#i-exam"/></svg></span>
+          <span class="trust__label"><strong>Συνεχή διαγωνίσματα</strong>με πραγματική προσομοίωση</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3. ΠΡΟΓΡΑΜΜΑΤΑ — tabs (το περιεχόμενο γεμίζει από script.js)
+       ========================================================= -->
+  <section class="section" id="programmata">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="eyebrow">Προγράμματα Σπουδών</p>
+        <h2>Ένα πρόγραμμα για κάθε τάξη, με ορίζοντα τις Πανελλήνιες</h2>
+        <p>Επιλέξτε τάξη για να δείτε μαθήματα και ώρες ανά εβδομάδα. Όπου διαπιστωθεί ανάγκη ενίσχυσης, προστίθενται επιπλέον ώρες διδασκαλίας.</p>
+      </header>
+
+      <div class="tabs reveal">
+        <div class="tabs__list" role="tablist" aria-label="Τάξεις" id="tabList">
+          <button class="tabs__tab is-active" role="tab" id="tab-gymnasio" aria-controls="tabPanel" aria-selected="true" data-tab="gymnasio">Γυμνάσιο</button>
+          <button class="tabs__tab" role="tab" id="tab-a" aria-controls="tabPanel" aria-selected="false" tabindex="-1" data-tab="a">Α΄ Λυκείου</button>
+          <button class="tabs__tab" role="tab" id="tab-b" aria-controls="tabPanel" aria-selected="false" tabindex="-1" data-tab="b">Β΄ Λυκείου</button>
+          <button class="tabs__tab" role="tab" id="tab-g" aria-controls="tabPanel" aria-selected="false" tabindex="-1" data-tab="g">Γ΄ Λυκείου <span class="tabs__hint">Πανελλήνιες</span></button>
+          <button class="tabs__tab" role="tab" id="tab-therina" aria-controls="tabPanel" aria-selected="false" tabindex="-1" data-tab="therina">Θερινά Τμήματα</button>
+        </div>
+
+        <div class="tabs__panel" role="tabpanel" id="tabPanel" aria-labelledby="tab-gymnasio" tabindex="0">
+          <noscript><p>Ενεργοποιήστε τη JavaScript για να δείτε τα προγράμματα ή καλέστε μας στο 210 994 6098.</p></noscript>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. ΓΙΑΤΙ ΔΙΑΚΡΙΣΗ — bento grid
+       ========================================================= -->
+  <section class="section section--tint" id="giati">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="eyebrow">Γιατί Διάκριση</p>
+        <h2>Θετικό, πειθαρχημένο και υποστηρικτικό περιβάλλον</h2>
+        <p>Εμπειρία, αφοσίωση και επαγγελματισμός — ώστε κάθε μαθητής να έχει τα σωστά εφόδια και τις σωστές κατευθύνσεις.</p>
+      </header>
+
+      <div class="bento">
+        <article class="bento__tile bento__tile--hero reveal">
+          <span class="bento__icon"><svg class="icon"><use href="#i-users"/></svg></span>
+          <h3>Ομοιογενή τμήματα, περιορισμένα σε αριθμό</h3>
+          <p>Κάθε μαθητής αξιολογείται πριν από την ένταξή του και τοποθετείται σε τμήμα με συμμαθητές ίδιου επιπέδου και ίδιων στόχων. Έτσι το μάθημα προχωρά στον σωστό ρυθμό και κανείς δεν μένει πίσω.</p>
+          <ul class="ticks">
+            <li><svg class="icon"><use href="#i-check"/></svg> Κατάταξη με κριτήρια αξιολόγησης στην ύλη της προηγούμενης τάξης</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Τμήματα ανά επιστημονικό πεδίο από τη Β΄ Λυκείου</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Περιορισμένος αριθμός τμημάτων</li>
+          </ul>
+        </article>
+
+        <article class="bento__tile bento__tile--wide reveal">
+          <span class="bento__icon"><svg class="icon"><use href="#i-target"/></svg></span>
+          <h3>Εξατομικευμένη παρακολούθηση</h3>
+          <p>Διαρκής έλεγχος των επιδόσεων και επιπλέον ώρες ενίσχυσης στα αντικείμενα όπου ο μαθητής δυσκολεύεται — όποτε κριθεί αναγκαίο.</p>
+        </article>
+
+        <article class="bento__tile reveal">
+          <span class="bento__icon"><svg class="icon"><use href="#i-exam"/></svg></span>
+          <h3>Διαγωνίσματα προσομοίωσης</h3>
+          <p>Συνεχείς γραπτές εξετάσεις σε συνθήκες πραγματικής προσομοίωσης.</p>
+        </article>
+
+        <article class="bento__tile bento__tile--amber reveal">
+          <span class="bento__icon"><svg class="icon"><use href="#i-compass"/></svg></span>
+          <h3>Επαγγελματικός προσανατολισμός</h3>
+          <p>Καθοδήγηση για σχολές και επαγγέλματα.</p>
+          <a class="link-arrow" href="https://odigos.stadiodromia.gr/login.php?cid=7604468E-B8A5-446B-A3AA-A02085F375F2" target="_blank" rel="noopener">Οδηγός Σταδιοδρομίας <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+
+        <article class="bento__tile bento__tile--wide reveal">
+          <span class="bento__icon"><svg class="icon"><use href="#i-chat"/></svg></span>
+          <h3>Στενή συνεργασία με τους γονείς</h3>
+          <p>Συχνές προγραμματισμένες και έκτακτες ενημερώσεις, με αντικειμενική εικόνα της προόδου — και συμβουλευτική για το άγχος και την πίεση της Γ΄ Λυκείου.</p>
+        </article>
+
+        <article class="bento__tile bento__tile--wide reveal">
+          <span class="bento__icon"><svg class="icon"><use href="#i-cap"/></svg></span>
+          <h3>Καθηγητές με 20ετή και πλέον εμπειρία</h3>
+          <p>Το φροντιστήριο ιδρύθηκε το 2014 από τους <strong>Βαγγέλη Θεοχάρη</strong> (Φυσικό), <strong>Δημήτρη Παπαφιλιππόπουλο</strong> (Φυσικό) και <strong>Πέτρο Χρονόπουλο</strong> (Μαθηματικό).</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. ΕΠΙΤΥΧΙΕΣ + ΔΕΣΜΕΥΣΕΙΣ
+       ========================================================= -->
+  <section class="section" id="epityxies">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="eyebrow">Επιτυχόντες</p>
+        <h2>Τα αποτελέσματα μιλούν για εμάς</h2>
+        <p>Οι πρώτοι μαθητές μας ανά επιστημονικό πεδίο, χρονιά με τη χρονιά.</p>
+      </header>
+
+      <div class="years reveal" role="group" aria-label="Επιλογή χρονιάς" id="yearList"></div>
+      <div class="results" id="resultGrid" aria-live="polite"></div>
+
+      <p class="results__more reveal">
+        <a class="link-arrow" href="https://www.e-diakrisi.gr/epityhontes" target="_blank" rel="noopener">
+          Δείτε τις πλήρεις λίστες επιτυχόντων 2021 – 2026 <svg class="icon"><use href="#i-arrow"/></svg>
+        </a>
+      </p>
+
+      <!-- ΚΡΙΤΙΚΕΣ: το e-diakrisi.gr δεν δημοσιεύει μαρτυρίες γονέων/μαθητών, οπότε εδώ
+           μπαίνουν οι δεσμεύσεις του φροντιστηρίου. Για πραγματικές κριτικές, αντικαταστήστε
+           κάθε .pledge με το κείμενο και το όνομα του γονέα/μαθητή (ίδια δομή κάρτας). -->
+      <h3 class="subhead reveal">Τι δεσμευόμαστε σε γονείς και μαθητές</h3>
+      <div class="pledges">
+        <figure class="pledge reveal">
+          <svg class="pledge__mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V13.6C0 5.9 4.3 1.3 12 0l1.3 3.3C9.6 4.4 7.7 6.8 7.4 10H13v14H0zm18 0V13.6C18 5.9 22.3 1.3 30 0l1.3 3.3c-3.7 1.1-5.6 3.5-5.9 6.7H31v14H18z"/></svg>
+          <blockquote>Θα ξέρετε πάντα πού βρίσκεται το παιδί σας. Η ενημέρωση είναι συχνή, προγραμματισμένη ή έκτακτη, και πάντα αντικειμενική.</blockquote>
+          <figcaption><strong>Προς τους γονείς</strong>Ανοιχτή επικοινωνία</figcaption>
+        </figure>
+        <figure class="pledge reveal">
+          <svg class="pledge__mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V13.6C0 5.9 4.3 1.3 12 0l1.3 3.3C9.6 4.4 7.7 6.8 7.4 10H13v14H0zm18 0V13.6C18 5.9 22.3 1.3 30 0l1.3 3.3c-3.7 1.1-5.6 3.5-5.9 6.7H31v14H18z"/></svg>
+          <blockquote>Δεν θα μείνεις μόνος με τις απορίες σου. Όπου δυσκολεύεσαι, προσθέτουμε ώρες ενίσχυσης μέχρι το δύσκολο να γίνει εύκολο.</blockquote>
+          <figcaption><strong>Προς τους μαθητές</strong>Ενίσχυση όπου χρειάζεται</figcaption>
+        </figure>
+        <figure class="pledge reveal">
+          <svg class="pledge__mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V13.6C0 5.9 4.3 1.3 12 0l1.3 3.3C9.6 4.4 7.7 6.8 7.4 10H13v14H0zm18 0V13.6C18 5.9 22.3 1.3 30 0l1.3 3.3c-3.7 1.1-5.6 3.5-5.9 6.7H31v14H18z"/></svg>
+          <blockquote>Θα μπεις στην αίθουσα των εξετάσεων έχοντας ήδη γράψει πολλές φορές σε πραγματικές συνθήκες. Τίποτα δεν θα σε αιφνιδιάσει.</blockquote>
+          <figcaption><strong>Προς τους υποψηφίους</strong>Πραγματική προσομοίωση</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. ΕΠΙΚΟΙΝΩΝΙΑ + ΦΟΡΜΑ ΕΝΔΙΑΦΕΡΟΝΤΟΣ
+       ========================================================= -->
+  <section class="section section--dark" id="epikoinonia">
+    <div class="container contact">
+      <div class="contact__info reveal">
+        <p class="eyebrow eyebrow--light">Εγγραφές &amp; Επικοινωνία</p>
+        <h2>Ας γνωριστούμε από κοντά</h2>
+        <p class="contact__lead">Η Διεύθυνση ενημερώνει αναλυτικά εσάς και τον μαθητή. Τα τμήματα είναι περιορισμένα σε αριθμό, γι’ αυτό κλείστε έγκαιρα το ραντεβού σας.</p>
+
+        <ol class="steps">
+          <li><span>1</span><div><strong>Ραντεβού ενημέρωσης</strong>Γνωριμία με τη Διεύθυνση, γονείς και μαθητής μαζί.</div></li>
+          <li><span>2</span><div><strong>Σύντομη αξιολόγηση</strong>Βασικές γνώσεις της προηγούμενης τάξης — δεν χρειάζεται ειδική προετοιμασία.</div></li>
+          <li><span>3</span><div><strong>Ένταξη σε ομοιογενές τμήμα</strong>Στο επίπεδο και την κατεύθυνση που ταιριάζει στον μαθητή.</div></li>
+        </ol>
+
+        <address class="contact__details">
+          <a href="https://maps.app.goo.gl/updVkxyFe89AQV2y7" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#i-pin"/></svg>
+            <span><strong>Λεωφ. Κύπρου 105, Αργυρούπολη 164 51</strong>5η Στάση Αργυρουπόλεως</span>
+          </a>
+          <a href="tel:+302109946098">
+            <svg class="icon"><use href="#i-phone"/></svg>
+            <span><strong>210 994 6098</strong>Πατήστε για κλήση</span>
+          </a>
+          <a href="mailto:info@e-diakrisi.gr">
+            <svg class="icon"><use href="#i-mail"/></svg>
+            <span><strong>info@e-diakrisi.gr</strong>Απαντάμε τις ώρες γραμματείας</span>
+          </a>
+          <div>
+            <svg class="icon"><use href="#i-clock"/></svg>
+            <span><strong>Καθημερινά 15:30 – 21:30</strong>Ώρες λειτουργίας γραμματείας</span>
+          </div>
+        </address>
+      </div>
+
+      <!-- Φόρμα: ο έλεγχος γίνεται στο script.js. ΠΡΟΣΟΧΗ — πρωτότυπο: τα στοιχεία
+           ΔΕΝ αποστέλλονται πουθενά. Συνδέστε το submit με backend / υπηρεσία φορμών. -->
+      <div class="form-card reveal" id="forma">
+        <form id="leadForm" novalidate>
+          <h3>Δηλώστε ενδιαφέρον</h3>
+          <p class="form-card__sub">Συμπληρώστε τα στοιχεία σας και θα σας καλέσουμε για να ορίσουμε ραντεβού.</p>
+
+          <div class="field">
+            <label for="f-name">Ονοματεπώνυμο γονέα ή μαθητή</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="π.χ. Μαρία Παπαδοπούλου" aria-describedby="e-name" required>
+            <p class="field__error" id="e-name" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="f-phone">Τηλέφωνο επικοινωνίας</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="69XXXXXXXX ή 210XXXXXXX" aria-describedby="e-phone" required>
+            <p class="field__error" id="e-phone" role="alert"></p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-grade">Τάξη (σχολ. έτος φοίτησης)</label>
+              <select id="f-grade" name="grade" aria-describedby="e-grade" required>
+                <option value="">Επιλέξτε τάξη</option>
+                <option>Γ΄ Γυμνασίου</option>
+                <option>Α΄ Λυκείου</option>
+                <option data-track>Β΄ Λυκείου</option>
+                <option data-track>Γ΄ Λυκείου</option>
+              </select>
+              <p class="field__error" id="e-grade" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="f-track">Ομάδα Προσανατολισμού</label>
+              <select id="f-track" name="track" aria-describedby="e-track h-track" disabled>
+                <option value="">Επιλέξτε πεδίο</option>
+                <option>Θετικές &amp; Τεχνολογικές Επιστήμες (2ο)</option>
+                <option>Επιστήμες Υγείας (3ο)</option>
+                <option>Οικονομία &amp; Πληροφορική (4ο)</option>
+                <option>Δεν έχω αποφασίσει ακόμη</option>
+              </select>
+              <p class="field__hint" id="h-track">Συμπληρώνεται για Β΄ και Γ΄ Λυκείου.</p>
+              <p class="field__error" id="e-track" role="alert"></p>
+            </div>
+          </div>
+
+          <fieldset class="field" aria-describedby="e-interest">
+            <legend>Ενδιαφέρομαι για</legend>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="interest" value="Χειμερινό πρόγραμμα"><span>Χειμερινό πρόγραμμα</span></label>
+              <label class="pill"><input type="radio" name="interest" value="Θερινή προετοιμασία"><span>Θερινή προετοιμασία</span></label>
+              <label class="pill"><input type="radio" name="interest" value="Ραντεβού ενημέρωσης"><span>Ραντεβού ενημέρωσης</span></label>
+              <label class="pill"><input type="radio" name="interest" value="Επαγγελματικό προσανατολισμό"><span>Επαγγελματικό προσανατολισμό</span></label>
+            </div>
+            <p class="field__error" id="e-interest" role="alert"></p>
+          </fieldset>
+
+          <button class="btn btn--primary btn--lg btn--block" type="submit">
+            Θέλω να με καλέσετε <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+          <p class="form-card__legal">Τα στοιχεία σας χρησιμοποιούνται μόνο για να επικοινωνήσουμε μαζί σας. <a href="https://www.e-diakrisi.gr/privacy-policy" target="_blank" rel="noopener">Πολιτική Απορρήτου</a></p>
+        </form>
+
+        <!-- Κατάσταση επιβεβαίωσης -->
+        <div class="form-success" id="formSuccess" tabindex="-1" hidden>
+          <span class="form-success__icon"><svg class="icon"><use href="#i-check"/></svg></span>
+          <h3>Ευχαριστούμε, <span id="s-name"></span>!</h3>
+          <p>Καταγράψαμε το ενδιαφέρον σας. Θα σας καλέσουμε στο <strong id="s-phone"></strong> τις ώρες γραμματείας (καθημερινά 15:30 – 21:30).</p>
+          <dl class="form-success__summary" id="s-summary"></dl>
+          <div class="form-success__actions">
+            <a class="btn btn--primary" href="tel:+302109946098"><svg class="icon"><use href="#i-phone"/></svg> Καλέστε τώρα</a>
+            <button class="btn btn--ghost" type="button" id="formReset">Νέα δήλωση</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Χάρτης -->
+    <div class="container">
+      <div class="map reveal">
+        <iframe
+          title="Χάρτης: Φροντιστήριο Διάκριση, Λεωφ. Κύπρου 105, Αργυρούπολη"
+          src="https://www.google.com/maps?q=%CE%9B%CE%B5%CF%89%CF%86.+%CE%9A%CF%8D%CF%80%CF%81%CE%BF%CF%85+105%2C+%CE%91%CF%81%CE%B3%CF%85%CF%81%CE%BF%CF%8D%CF%80%CE%BF%CE%BB%CE%B7+164+51&hl=el&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <a class="map__cta btn btn--primary btn--sm" href="https://maps.app.goo.gl/updVkxyFe89AQV2y7" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#i-pin"/></svg> Οδηγίες στο Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="brand brand--light" href="#top">
+        <span class="brand__mark" aria-hidden="true">Δ</span>
+        <span class="brand__text"><strong>Διάκριση</strong><small>Για μαθητές που έχουν στόχους</small></span>
+      </a>
+      <p class="footer__about">Φροντιστήριο Μέσης Εκπαίδευσης στην Αργυρούπολη, από το 2014.</p>
+    </div>
+    <nav aria-label="Τάξεις">
+      <h4>Τάξεις</h4>
+      <a href="#programmata" data-open-tab="gymnasio">Γ΄ Γυμνασίου</a>
+      <a href="#programmata" data-open-tab="a">Α΄ Λυκείου</a>
+      <a href="#programmata" data-open-tab="b">Β΄ Λυκείου</a>
+      <a href="#programmata" data-open-tab="g">Γ΄ Λυκείου</a>
+      <a href="#programmata" data-open-tab="therina">Θερινά Τμήματα</a>
+    </nav>
+    <nav aria-label="Χρήσιμα">
+      <h4>Χρήσιμα</h4>
+      <a href="https://www.e-diakrisi.gr/epityhontes" target="_blank" rel="noopener">Επιτυχόντες</a>
+      <a href="https://www.e-diakrisi.gr/anakoinoseis" target="_blank" rel="noopener">Ανακοινώσεις</a>
+      <a href="https://www.e-diakrisi.gr/syndesmoi" target="_blank" rel="noopener">Επικαιρότητα – Σύνδεσμοι</a>
+      <a href="https://odigos.stadiodromia.gr/login.php?cid=7604468E-B8A5-446B-A3AA-A02085F375F2" target="_blank" rel="noopener">Οδηγός Σταδιοδρομίας</a>
+    </nav>
+    <div>
+      <h4>Επικοινωνία</h4>
+      <p>Λεωφ. Κύπρου 105, Αργυρούπολη 164 51<br>(5η Στάση Αργυρουπόλεως)</p>
+      <p><a href="tel:+302109946098">210 994 6098</a><br><a href="mailto:info@e-diakrisi.gr">info@e-diakrisi.gr</a></p>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© <span id="year">2026</span> Διάκριση · Φροντιστήριο Μέσης Εκπαίδευσης</span>
+    <a href="https://www.e-diakrisi.gr/privacy-policy" target="_blank" rel="noopener">Πολιτική Απορρήτου</a>
+  </div>
+</footer>
+
+<!-- =========================================================
+     7. MOBILE BOTTOM ACTION BAR (≤ 768px)
+     ========================================================= -->
+<div class="action-bar" role="navigation" aria-label="Γρήγορες ενέργειες">
+  <a class="action-bar__btn action-bar__btn--call" href="tel:+302109946098">
+    <svg class="icon"><use href="#i-phone"/></svg> Κλήση
+  </a>
+  <a class="action-bar__btn action-bar__btn--lead" href="#forma">
+    <svg class="icon"><use href="#i-calendar"/></svg> Ενδιαφέρον
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
