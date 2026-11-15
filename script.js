@@ -5,7 +5,7 @@
      3. Mobile drawer
      4. Tabs προγραμμάτων
      5. Επιτυχόντες ανά χρονιά
-     6. Φόρμα ενδιαφέροντος: έλεγχος + επιβεβαίωση
+     6. Πρόσφατες ανακοινώσεις (από articles.js)
      7. Scroll-reveal (IntersectionObserver)
    ========================================================================== */
 (function () {
@@ -236,6 +236,7 @@
      ------------------------------------------------------------------------ */
   var tabs = $$('.tabs__tab');
   var panel = $('#tabPanel');
+  if (panel) {
 
   function courseCard(card) {
     var body, total = '';
@@ -263,13 +264,13 @@
     p.groups.forEach(function (g) {
       if (g.label) {
         html += '<div class="program__group">' + g.label +
-          (g.chip ? ' <span class="chip chip--amber">' + icon('calendar') + g.chip + '</span>' : '') + '</div>';
+          (g.chip ? ' <span class="chip chip--green">' + icon('calendar') + g.chip + '</span>' : '') + '</div>';
       }
       html += '<div class="program__cards">' + g.cards.map(courseCard).join('') + '</div>';
     });
 
-    html += '<div class="program__foot"><span>Θέλετε το αναλυτικό ωρολόγιο πρόγραμμα και πληροφορίες για τα δίδακτρα;</span>' +
-      '<a class="btn btn--primary btn--sm" href="#forma">Ζητήστε ενημέρωση ' + icon('arrow') + '</a></div>';
+    html += '<div class="program__foot"><span>Το αναλυτικό ωρολόγιο πρόγραμμα και τα δίδακτρα δίνονται στο ραντεβού ενημέρωσης με τη Διεύθυνση.</span>' +
+      '<a class="btn btn--primary btn--sm" href="tel:+302109946098">' + icon('phone') + ' 210 994 6098</a></div>';
 
     panel.innerHTML = html;
     /* επανεκκίνηση του animation εισόδου */
@@ -310,6 +311,7 @@
 
   renderProgram('gymnasio');
   panel.classList.remove('is-switching'); /* χωρίς animation στην πρώτη φόρτωση */
+  }
 
   /* ------------------------------------------------------------------------
      5. ΕΠΙΤΥΧΟΝΤΕΣ ΑΝΑ ΧΡΟΝΙΑ
@@ -318,6 +320,7 @@
   var resultGrid = $('#resultGrid');
   var FIELD_NAMES = { 2: 'Θετικές & Τεχνολογικές Επιστήμες', 3: 'Επιστήμες Υγείας', 4: 'Οικονομία & Πληροφορική' };
   var years = Object.keys(RESULTS).sort().reverse();
+  if (resultGrid) {
 
   function renderResults(year, animate) {
     resultGrid.innerHTML = RESULTS[year].map(function (r) {
@@ -348,125 +351,149 @@
     if (btn) renderResults(btn.dataset.year, true);
   });
   renderResults(years[0], false);
+  }
 
   /* ------------------------------------------------------------------------
-     6. ΦΟΡΜΑ ΕΝΔΙΑΦΕΡΟΝΤΟΣ
-     Πρωτότυπο: ο έλεγχος και η επιβεβαίωση γίνονται στον browser.
-     ΤΑ ΣΤΟΙΧΕΙΑ ΔΕΝ ΑΠΟΣΤΕΛΛΟΝΤΑΙ — προσθέστε fetch() στο σημείο «TODO backend».
+     6. ΑΝΑΚΟΙΝΩΣΕΙΣ — οι 3 πιο πρόσφατες κάρτες (δεδομένα: articles.js)
+     Κάθε κάρτα ανοίγει το πλήρες άρθρο στη σελίδα anakoinoseis.html
      ------------------------------------------------------------------------ */
-  var form = $('#leadForm');
-  var success = $('#formSuccess');
-  var fName = $('#f-name'), fPhone = $('#f-phone'), fGrade = $('#f-grade'), fTrack = $('#f-track');
-
-  function needsTrack() {
-    var opt = fGrade.options[fGrade.selectedIndex];
-    return !!opt && opt.hasAttribute('data-track');
+  var latest = $('#latestPosts');
+  if (latest && window.DIAKRISI_ARTICLES) {
+    latest.innerHTML = window.DIAKRISI_ARTICLES.slice(0, 3).map(window.DIAKRISI_POST_CARD).join('');
+    $$('.post', latest).forEach(function (el) { el.classList.add('reveal'); });
   }
 
-  function normalizePhone(v) {
-    return v.replace(/[\s\-().]/g, '').replace(/^(\+30|0030)/, '');
-  }
+  /* ------------------------------------------------------------------------
+     6b. ΣΕΛΙΔΑ ΑΝΑΚΟΙΝΩΣΕΩΝ (anakoinoseis.html)
+     Χωρίς ?a= → λίστα όλων. Με ?a=<slug> → ολόκληρο το άρθρο σε δική του σελίδα.
+     ------------------------------------------------------------------------ */
+  var articleRoot = $('#articleRoot');
+  if (articleRoot && window.DIAKRISI_ARTICLES) {
+    var ARTS = window.DIAKRISI_ARTICLES;
+    var fmt = window.DIAKRISI_FMT_DATE;
+    var slug = new URLSearchParams(window.location.search).get('a');
 
-  /* Κάθε validator επιστρέφει μήνυμα σφάλματος ή '' */
-  var validators = {
-    name: function () {
-      var v = fName.value.trim();
-      if (!v) return 'Συμπληρώστε το ονοματεπώνυμό σας.';
-      if (v.length < 5 || v.split(/\s+/).length < 2) return 'Γράψτε όνομα και επώνυμο.';
-      if (/\d/.test(v)) return 'Το ονοματεπώνυμο δεν πρέπει να περιέχει αριθμούς.';
-      return '';
-    },
-    phone: function () {
-      var v = normalizePhone(fPhone.value);
-      if (!v) return 'Συμπληρώστε ένα τηλέφωνο επικοινωνίας.';
-      if (!/^(2\d{9}|69\d{8})$/.test(v)) return 'Δώστε έγκυρο ελληνικό τηλέφωνο 10 ψηφίων (κινητό ή σταθερό).';
-      return '';
-    },
-    grade: function () { return fGrade.value ? '' : 'Επιλέξτε την τάξη του μαθητή.'; },
-    track: function () { return needsTrack() && !fTrack.value ? 'Επιλέξτε ομάδα προσανατολισμού.' : ''; },
-    interest: function () { return form.elements.interest.value ? '' : 'Επιλέξτε τι σας ενδιαφέρει.'; }
-  };
-
-  function showError(key) {
-    var msg = validators[key]();
-    var errEl = $('#e-' + key);
-    var field = errEl.closest('.field');
-    errEl.textContent = msg;
-    field.classList.toggle('is-invalid', !!msg);
-    field.classList.toggle('is-valid', !msg && key !== 'interest' && !(key === 'track' && !needsTrack()));
-    var input = form.elements[key];
-    if (input && input.setAttribute) input.setAttribute('aria-invalid', String(!!msg));
-    return !msg;
-  }
-
-  /* Η ομάδα προσανατολισμού ενεργοποιείται μόνο για Β΄ & Γ΄ Λυκείου */
-  fGrade.addEventListener('change', function () {
-    var on = needsTrack();
-    fTrack.disabled = !on;
-    fTrack.required = on;
-    if (!on) { fTrack.value = ''; showError('track'); }
-    showError('grade');
-  });
-
-  /* Έλεγχος όταν ο χρήστης φεύγει από το πεδίο, και ζωντανή διόρθωση αν είχε σφάλμα */
-  [['name', fName], ['phone', fPhone], ['track', fTrack]].forEach(function (pair) {
-    pair[1].addEventListener('blur', function () { if (pair[1].value) showError(pair[0]); });
-    pair[1].addEventListener('input', function () {
-      if (pair[1].closest('.field').classList.contains('is-invalid')) showError(pair[0]);
-    });
-  });
-  $$('input[name="interest"]', form).forEach(function (r) {
-    r.addEventListener('change', function () { showError('interest'); });
-  });
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var firstInvalid = null;
-    Object.keys(validators).forEach(function (key) {
-      if (!showError(key) && !firstInvalid) firstInvalid = key;
-    });
-    if (firstInvalid) {
-      var target = firstInvalid === 'interest' ? $('input[name="interest"]', form) : form.elements[firstInvalid];
-      target.focus();
-      return;
-    }
-
-    var data = {
-      name: fName.value.trim(),
-      phone: normalizePhone(fPhone.value),
-      grade: fGrade.value,
-      track: needsTrack() ? fTrack.value : '',
-      interest: form.elements.interest.value
+    var renderBlock = function (b) {
+      if (typeof b === 'string') return '<p>' + b + '</p>';
+      var tag = b.ol ? 'ol' : 'ul';
+      return '<' + tag + '>' + (b.ol || b.ul).map(function (li) { return '<li>' + li + '</li>'; }).join('') + '</' + tag + '>';
     };
 
-    /* TODO backend: fetch('/api/lead', { method: 'POST', body: JSON.stringify(data) }) */
+    var crumbs = function (current) {
+      return '<nav class="crumbs" aria-label="Διαδρομή"><a href="index.html">Αρχική</a><span aria-hidden="true">/</span>' +
+        (current ? '<a href="anakoinoseis.html">Ανακοινώσεις &amp; Άρθρα</a><span aria-hidden="true">/</span><span>' + current + '</span>'
+                 : '<span>Ανακοινώσεις &amp; Άρθρα</span>') + '</nav>';
+    };
 
-    $('#s-name').textContent = data.name.split(/\s+/)[0];
-    $('#s-phone').textContent = data.phone.replace(/^(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3');
-    var summary = $('#s-summary');
-    summary.textContent = '';
-    [['Τάξη', data.grade], ['Προσανατολισμός', data.track], ['Ενδιαφέρον', data.interest]].forEach(function (row) {
-      if (!row[1]) return;
-      var wrap = document.createElement('div');
-      var dt = document.createElement('dt'); dt.textContent = row[0];
-      var dd = document.createElement('dd'); dd.textContent = row[1];
-      wrap.appendChild(dt); wrap.appendChild(dd); summary.appendChild(wrap);
+    var asideHtml = function (exclude) {
+      var others = ARTS.filter(function (x) { return x.slug !== exclude; }).slice(0, 4);
+      return '<aside class="article__aside">' +
+        '<div class="aside-card"><h2>Άλλα άρθρα</h2><div class="aside-list">' + others.map(function (x) {
+          return '<a href="anakoinoseis.html?a=' + x.slug + '">' + x.title + '<small>' + fmt(x.date) + ' · ' + x.category + '</small></a>';
+        }).join('') + '</div></div>' +
+        '<div class="aside-card aside-card--dark"><h2>Ραντεβού ενημέρωσης</h2>' +
+        '<p>Η Διεύθυνση ενημερώνει γονείς και μαθητές προσωπικά. Γραμματεία: καθημερινά 15:30 – 21:30.</p>' +
+        '<a class="btn btn--primary btn--block" href="tel:+302109946098">' + icon('phone') + ' 210 994 6098</a></div>' +
+        '</aside>';
+    };
+
+    var idx = -1;
+    ARTS.forEach(function (x, i) { if (x.slug === slug) idx = i; });
+
+    if (slug && idx > -1) {
+      var a = ARTS[idx];
+      var newer = ARTS[idx - 1], older = ARTS[idx + 1];
+      document.title = a.title + ' · Φροντιστήριο Διάκριση';
+      var metaDesc = $('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', a.lead);
+
+      articleRoot.innerHTML =
+        '<section class="page-head"><div class="container">' + crumbs(a.title) +
+          '<div class="article-meta"><span class="chip chip--blue">' + icon('calendar') + ' <time datetime="' + a.date + '">' + fmt(a.date) + '</time></span> ' + a.category + '</div>' +
+          '<h1>' + a.title + '</h1>' +
+        '</div></section>' +
+        '<section class="section"><div class="container article">' +
+          '<article><div class="prose"><p class="prose__lead">' + a.lead + '</p>' + a.body.map(renderBlock).join('') + '</div>' +
+            '<nav class="article-nav" aria-label="Άλλα άρθρα">' +
+              (older ? '<a href="anakoinoseis.html?a=' + older.slug + '"><small>← Παλαιότερο</small><strong>' + older.title + '</strong></a>' : '') +
+              (newer ? '<a class="article-nav__next" href="anakoinoseis.html?a=' + newer.slug + '"><small>Νεότερο →</small><strong>' + newer.title + '</strong></a>' : '') +
+            '</nav>' +
+            '<p style="margin-top:var(--sp-5)"><a class="link-arrow" href="anakoinoseis.html">Όλες οι ανακοινώσεις ' + icon('arrow') + '</a></p>' +
+          '</article>' + asideHtml(a.slug) +
+        '</div></section>';
+    } else if (slug) {
+      articleRoot.innerHTML =
+        '<section class="page-head"><div class="container">' + crumbs('Δεν βρέθηκε') + '<h1>Το άρθρο δεν βρέθηκε</h1></div></section>' +
+        '<section class="section"><div class="container article-missing"><p>Ο σύνδεσμος ίσως έχει αλλάξει ή το άρθρο έχει αποσυρθεί.</p>' +
+        '<a class="btn btn--primary" href="anakoinoseis.html">Όλες οι ανακοινώσεις ' + icon('arrow') + '</a></div></section>';
+    } else {
+      var list = $('.section .container', articleRoot);
+      list.innerHTML = '<div class="posts">' + ARTS.map(window.DIAKRISI_POST_CARD).join('') + '</div>';
+      $$('.post', list).forEach(function (el) { el.classList.add('reveal'); });
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     6c. ΣΕΛΙΔΑ ΕΠΙΤΥΧΟΝΤΩΝ (epityxies.html) — όλοι οι μαθητές, δεδομένα: results.js
+     Η χρονιά κρατιέται στο URL (?y=2025) ώστε ο σύνδεσμος να μοιράζεται.
+     ------------------------------------------------------------------------ */
+  var rollRoot = $('#rollRoot');
+  if (rollRoot && window.DIAKRISI_RESULTS) {
+    var ALL = window.DIAKRISI_RESULTS;
+    var rollYears = Object.keys(ALL).sort().reverse();
+    var rollYearList = $('#rollYears');
+    var FIELD_TITLES = { 2: 'Θετικές & Τεχνολογικές Επιστήμες', 3: 'Επιστήμες Υγείας', 4: 'Οικονομία & Πληροφορική' };
+    var points = function (v) { return /^\d{4,5}$/.test(v) ? Number(v).toLocaleString('el-GR') : (v || '—'); };
+
+    var renderRoll = function (year, animate) {
+      var data = ALL[year];
+      var total = 0, best = 0;
+      [2, 3, 4].forEach(function (f) {
+        total += data[f].length;
+        data[f].forEach(function (r) { if (/^\d{4,5}$/.test(r[1])) best = Math.max(best, Number(r[1])); });
+      });
+
+      rollRoot.innerHTML =
+        '<div class="roll__summary">' +
+          '<div><b>' + total + '</b><span>επιτυχόντες στις Πανελλήνιες ' + year + '</span></div>' +
+          '<div><b>' + best.toLocaleString('el-GR') + '</b><span>μόρια — η υψηλότερη επίδοση της χρονιάς</span></div>' +
+          '<div><b>3</b><span>επιστημονικά πεδία</span></div>' +
+        '</div>' +
+        '<div class="roll__fields">' + [2, 3, 4].map(function (f) {
+          return '<section class="roll__field" aria-labelledby="roll-f' + f + '">' +
+            '<header class="roll__head"><small>' + f + 'ο Επιστημονικό Πεδίο</small><h2 id="roll-f' + f + '">' + FIELD_TITLES[f] + '</h2>' +
+            '<span>' + data[f].length + ' επιτυχόντες</span></header>' +
+            '<ol class="roll__list">' + data[f].map(function (r, i) {
+              return '<li><span class="roll__n">' + (i + 1) + '.</span>' +
+                '<span class="roll__who"><strong>' + r[0] + (r[3] ? '<span class="roll__rank">' + r[3] + ' στη σχολή</span>' : '') + '</strong><small>' + r[2] + '</small></span>' +
+                '<span class="roll__score">' + points(r[1]) + '</span></li>';
+            }).join('') + '</ol></section>';
+        }).join('') + '</div>';
+
+      $$('.years__btn', rollYearList).forEach(function (b) {
+        var active = b.dataset.year === year;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
+      if (animate) {
+        rollRoot.classList.remove('is-switching');
+        void rollRoot.offsetWidth;
+        rollRoot.classList.add('is-switching');
+      }
+    };
+
+    rollYearList.innerHTML = rollYears.map(function (y) {
+      return '<button type="button" class="years__btn" data-year="' + y + '">' + y + '</button>';
+    }).join('');
+    rollYearList.addEventListener('click', function (e) {
+      var btn = e.target.closest('.years__btn');
+      if (!btn) return;
+      renderRoll(btn.dataset.year, true);
+      history.replaceState(null, '', 'epityxies.html?y=' + btn.dataset.year);
     });
-
-    form.hidden = true;
-    success.hidden = false;
-    success.focus();
-  });
-
-  $('#formReset').addEventListener('click', function () {
-    form.reset();
-    fTrack.disabled = true;
-    $$('.field', form).forEach(function (f) { f.classList.remove('is-valid', 'is-invalid'); });
-    $$('.field__error', form).forEach(function (el) { el.textContent = ''; });
-    success.hidden = true;
-    form.hidden = false;
-    fName.focus();
-  });
+    var wanted = new URLSearchParams(window.location.search).get('y');
+    renderRoll(ALL[wanted] ? wanted : rollYears[0], false);
+  }
 
   /* ------------------------------------------------------------------------
      7. SCROLL-REVEAL
@@ -492,5 +519,6 @@
   }
 
   /* Τρέχον έτος στο footer */
-  $('#year').textContent = new Date().getFullYear();
+  var yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();

@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Διάκριση · Φροντιστήριο Μέσης Εκπαίδευσης στην Αργυρούπολη</title>
   <meta name="description" content="Φροντιστήριο Διάκριση στην Αργυρούπολη: Γ΄ Γυμνασίου, Α΄, Β΄ και Γ΄ Λυκείου, θερινή προετοιμασία. Ομοιογενή τμήματα, διαγωνίσματα προσομοίωσης, συνεχής ενημέρωση γονέων. Τηλ. 210 994 6098.">
-  <meta name="theme-color" content="#0F172A">
+  <meta name="theme-color" content="#0B8A3E">
+  <link rel="icon" type="image/png" href="images/logo.png">
 
   <!-- Google Fonts: η Inter καλύπτει τα ελληνικά, η Plus Jakarta Sans τα λατινικά/αριθμούς των τίτλων -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
 
@@ -37,6 +38,12 @@
   <symbol id="i-exam" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></symbol>
   <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-school" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6M12 10h.01"/></symbol>
+  <symbol id="i-news" viewBox="0 0 24 24"><path d="M4 22h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></symbol>
+  <symbol id="i-group" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.25"/><path d="M6 20v-1a6 6 0 0 1 12 0v1"/><circle cx="4.75" cy="10" r="2"/><path d="M1.5 18.5v-.5a3.25 3.25 0 0 1 3.25-3.25"/><circle cx="19.25" cy="10" r="2"/><path d="M22.5 18.5v-.5a3.25 3.25 0 0 0-3.25-3.25"/></symbol>
+  <symbol id="i-test" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="m9 13.5 2 2 4-4.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
 </svg>
 
 <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
@@ -46,21 +53,18 @@
      ========================================================= -->
 <header class="nav" id="nav">
   <div class="container nav__inner">
-    <!-- Για το πραγματικό λογότυπο: αντικαταστήστε το .brand__mark με
-         <img src="https://www.e-diakrisi.gr/sites/default/files/logo.png" alt="Διάκριση"> -->
     <a class="brand" href="#top" aria-label="Διάκριση — αρχική">
-      <span class="brand__mark" aria-hidden="true">Δ</span>
-      <span class="brand__text">
-        <strong>Διάκριση</strong>
-        <small>Φροντιστήριο Μέσης Εκπαίδευσης</small>
-      </span>
+      <img src="images/logo-diakrisi.png" alt="Διάκριση — Φροντιστήριο Μέσης Εκπαίδευσης" class="brand__logo" width="227" height="108">
     </a>
 
     <nav class="nav__links" aria-label="Κύρια πλοήγηση">
       <a href="#programmata">Προγράμματα</a>
+      <a href="#methodos">Μέθοδος</a>
       <a href="#giati">Γιατί Διάκριση</a>
-      <a href="#epityxies">Επιτυχίες</a>
+      <a href="epityxies.html">Επιτυχίες</a>
+      <a href="anakoinoseis.html">Ανακοινώσεις</a>
       <a href="#epikoinonia">Επικοινωνία</a>
+      <a class="nav__guide" href="https://odigos.stadiodromia.gr/login.php?cid=7604468E-B8A5-446B-A3AA-A02085F375F2" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg> Οδηγός Σταδιοδρομίας</a>
     </nav>
 
     <div class="nav__actions">
@@ -68,7 +72,6 @@
         <svg class="icon"><use href="#i-phone"/></svg>
         <span>210 994 6098</span>
       </a>
-      <a class="btn btn--primary btn--sm nav__cta" href="#forma">Κλείστε Ραντεβού</a>
       <button class="nav__toggle" id="navToggle" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="drawer">
         <svg class="icon"><use href="#i-menu"/></svg>
       </button>
@@ -80,21 +83,27 @@
 <div class="drawer-overlay" id="drawerOverlay" hidden></div>
 <aside class="drawer" id="drawer" aria-label="Μενού" inert>
   <div class="drawer__head">
-    <span class="brand__text"><strong>Διάκριση</strong><small>Για μαθητές που έχουν στόχους</small></span>
+    <img src="images/logo-diakrisi.png" alt="Διάκριση — Φροντιστήριο Μέσης Εκπαίδευσης" class="brand__logo" width="227" height="108">
     <button class="nav__toggle nav__toggle--close" id="drawerClose" type="button" aria-label="Κλείσιμο μενού">
       <svg class="icon"><use href="#i-close"/></svg>
     </button>
   </div>
   <nav class="drawer__links" aria-label="Πλοήγηση κινητού">
     <a href="#programmata">Προγράμματα</a>
+    <a href="#methodos">Η μέθοδός μας</a>
     <a href="#giati">Γιατί Διάκριση</a>
-    <a href="#epityxies">Επιτυχίες</a>
+    <a href="epityxies.html">Επιτυχίες</a>
+    <a href="anakoinoseis.html">Ανακοινώσεις &amp; Άρθρα</a>
+    <a class="drawer__guide" href="https://odigos.stadiodromia.gr/login.php?cid=7604468E-B8A5-446B-A3AA-A02085F375F2" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg> Οδηγός Σταδιοδρομίας</a>
+    <a href="https://www.e-diakrisi.gr/syndesmoi" target="_blank" rel="noopener">Επικαιρότητα – Σύνδεσμοι <svg class="icon icon--xs" aria-hidden="true"><use href="#i-external"/></svg></a>
     <a href="#epikoinonia">Επικοινωνία</a>
   </nav>
   <div class="drawer__foot">
-    <a class="btn btn--primary btn--block" href="#forma">Κλείστε Ραντεβού</a>
-    <a class="btn btn--ghost btn--block" href="tel:+302109946098">
-      <svg class="icon"><use href="#i-phone"/></svg> 210 994 6098
+    <a class="btn btn--primary btn--block" href="tel:+302109946098">
+      <svg class="icon"><use href="#i-phone"/></svg> Ραντεβού: 210 994 6098
+    </a>
+    <a class="btn btn--ghost btn--block" href="mailto:info@e-diakrisi.gr">
+      <svg class="icon"><use href="#i-mail"/></svg> info@e-diakrisi.gr
     </a>
     <p class="drawer__hours">Γραμματεία: καθημερινά 15:30 – 21:30</p>
   </div>
@@ -108,20 +117,22 @@
   <section class="hero" id="top">
     <div class="container hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow eyebrow--light">
+        <p class="eyebrow">
           <span class="eyebrow__dot"></span> Αργυρούπολη · από το 2014
         </p>
-        <h1>Ο στόχος είναι δικός σου.<br><span class="accent-text">Η μέθοδος, δική μας.</span></h1>
+        <h1>Συστηματική προετοιμασία<br><span class="accent-text">για τις Πανελλαδικές εξετάσεις.</span></h1>
         <p class="hero__lead">
-          Στη Διάκριση προετοιμάζουμε μαθητές Γυμνασίου και Λυκείου που στοχεύουν σε ιατρικές,
-          πολυτεχνικές, φυσικομαθηματικές, οικονομικές, στρατιωτικές σχολές και σχολές πληροφορικής —
-          με ομοιογενή τμήματα, συνεχή διαγωνίσματα προσομοίωσης και ειλικρινή ενημέρωση των γονέων.
+          Η Διάκριση είναι φροντιστήριο Μέσης Εκπαίδευσης με ένα σαφές αντικείμενο: την ουσιαστική
+          κατανόηση της ύλης και την προετοιμασία μαθητών που στοχεύουν σε ιατρικές, πολυτεχνικές,
+          φυσικομαθηματικές, οικονομικές, στρατιωτικές σχολές και σχολές πληροφορικής.
+          Διδάσκουν καθηγητές με εμπειρία άνω των 20 ετών, σε ομοιογενή τμήματα, με τακτική
+          γραπτή αξιολόγηση και αντικειμενική ενημέρωση των γονέων.
         </p>
         <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="#forma">
-            Κλείστε Ραντεβού Γνωριμίας <svg class="icon"><use href="#i-arrow"/></svg>
+          <a class="btn btn--primary btn--lg" href="#methodos">
+            Η εκπαιδευτική μας μέθοδος <svg class="icon"><use href="#i-arrow"/></svg>
           </a>
-          <a class="btn btn--outline-light btn--lg" href="#programmata">Δείτε τα Προγράμματα</a>
+          <a class="btn btn--outline btn--lg" href="#programmata">Προγράμματα Σπουδών</a>
         </div>
         <p class="hero__note">
           <svg class="icon"><use href="#i-check"/></svg>
@@ -133,7 +144,7 @@
       <div class="hero__visual" aria-label="Πρώτοι ανά επιστημονικό πεδίο, Πανελλήνιες 2026">
         <div class="result-board">
           <div class="result-board__head">
-            <span class="chip chip--amber"><svg class="icon"><use href="#i-award"/></svg> Πανελλήνιες 2026</span>
+            <span class="chip chip--green"><svg class="icon"><use href="#i-award"/></svg> Πανελλήνιες 2026</span>
             <span class="result-board__title">Οι πρώτοι μας ανά πεδίο</span>
           </div>
           <ul class="result-board__list">
@@ -153,14 +164,11 @@
               <span class="result-board__score">18.540</span>
             </li>
           </ul>
-          <a class="result-board__link" href="#epityxies">Όλες οι χρονιές <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="result-board__link" href="epityxies.html">Όλοι οι επιτυχόντες <svg class="icon"><use href="#i-arrow"/></svg></a>
         </div>
         <div class="float-card float-card--a">
           <svg class="icon"><use href="#i-clock"/></svg>
           <span><strong>Γραμματεία</strong>Καθημερινά 15:30 – 21:30</span>
-        </div>
-        <div class="float-card float-card--b">
-          <span class="float-card__quote">«Τα δύσκολα γίνονται εύκολα!»</span>
         </div>
       </div>
     </div>
@@ -177,11 +185,11 @@
           <span class="trust__label">δίπλα στους μαθητές της Αργυρούπολης από τότε</span>
         </li>
         <li>
-          <span class="trust__icon"><svg class="icon"><use href="#i-users"/></svg></span>
+          <span class="trust__icon"><svg class="icon" aria-hidden="true"><use href="#i-group"/></svg></span>
           <span class="trust__label"><strong>Ομοιογενή τμήματα</strong>περιορισμένα σε αριθμό</span>
         </li>
         <li>
-          <span class="trust__icon"><svg class="icon"><use href="#i-exam"/></svg></span>
+          <span class="trust__icon"><svg class="icon" aria-hidden="true"><use href="#i-test"/></svg></span>
           <span class="trust__label"><strong>Συνεχή διαγωνίσματα</strong>με πραγματική προσομοίωση</span>
         </li>
       </ul>
@@ -211,6 +219,92 @@
         <div class="tabs__panel" role="tabpanel" id="tabPanel" aria-labelledby="tab-gymnasio" tabindex="0">
           <noscript><p>Ενεργοποιήστε τη JavaScript για να δείτε τα προγράμματα ή καλέστε μας στο 210 994 6098.</p></noscript>
         </div>
+      </div>
+
+      <!-- Banner: Πρότυπα σχολεία -->
+      <aside class="promo reveal" aria-labelledby="promo-title">
+        <span class="promo__icon" aria-hidden="true"><svg class="icon"><use href="#i-school"/></svg></span>
+        <div class="promo__copy">
+          <p class="promo__eyebrow">Ειδικά τμήματα</p>
+          <h3 id="promo-title">Προετοιμασία για Πρότυπα Γυμνάσια &amp; Λύκεια</h3>
+          <p>Λειτουργούν ειδικά τμήματα προετοιμασίας για τις εξετάσεις εισαγωγής σε Πρότυπα Γυμνάσια και Λύκεια.</p>
+        </div>
+        <a class="btn btn--primary btn--lg promo__cta" href="tel:+302109946098">
+          <svg class="icon"><use href="#i-phone"/></svg> Ενημέρωση: 210 994 6098
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ΕΚΠΑΙΔΕΥΤΙΚΗ ΜΕΘΟΔΟΣ — ο ετήσιος κύκλος διδασκαλίας & αξιολόγησης
+       ========================================================= -->
+  <section class="section section--paper" id="methodos">
+    <div class="container">
+      <div class="method">
+        <header class="method__head reveal">
+          <p class="eyebrow">Η εκπαιδευτική μας μέθοδος</p>
+          <h2>Η επιτυχία δεν είναι θέμα τύχης. Είναι αποτέλεσμα μεθόδου.</h2>
+          <p>Κάθε σχολική χρονιά οργανώνεται ως ένας κύκλος διδασκαλίας, εξάσκησης και αξιολόγησης.
+            Ο μαθητής γνωρίζει τι αναμένεται από αυτόν, ο καθηγητής γνωρίζει πού βρίσκεται ο μαθητής,
+            και ο γονέας ενημερώνεται με αντικειμενικά στοιχεία.</p>
+          <blockquote class="method__quote">
+            «Η Γ΄ Λυκείου είναι μια πολύ απαιτητική χρονιά, ακόμα και για τους καλούς μαθητές.
+            Ένας αποφασισμένος μαθητής με σωστή καθοδήγηση μπορεί να καλύψει τα κενά του και να πετύχει.»
+            <cite>Η Διεύθυνση του φροντιστηρίου</cite>
+          </blockquote>
+        </header>
+
+        <ol class="method__steps">
+          <li class="reveal">
+            <span class="method__num">01</span>
+            <div>
+              <h3>Διαγνωστική αξιολόγηση</h3>
+              <p>Πριν από την ένταξη, ο μαθητής γράφει σύντομη αξιολόγηση στην ύλη της προηγούμενης τάξης.
+                Έτσι εντοπίζονται οι βάσεις και τα κενά του από την πρώτη μέρα.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="method__num">02</span>
+            <div>
+              <h3>Κατάταξη σε ομοιογενές τμήμα</h3>
+              <p>Τμήματα με περιορισμένο αριθμό μαθητών ίδιου επιπέδου και, από τη Β΄ Λυκείου,
+                ίδιου επιστημονικού πεδίου. Η διδασκαλία προχωρά με ρυθμό που ταιριάζει στο τμήμα.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="method__num">03</span>
+            <div>
+              <h3>Συστηματική διδασκαλία της ύλης</h3>
+              <p>Πλήρης και οργανωμένη κάλυψη της ύλης, με έμφαση στην κατανόηση και όχι στην
+                αποστήθιση. Ο μαθητής μαθαίνει να οργανώνει τη μελέτη του και να διαχειρίζεται τον χρόνο του.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="method__num">04</span>
+            <div>
+              <h3>Τακτικές γραπτές δοκιμασίες</h3>
+              <p>Συχνά γραπτά τεστ ελέγχουν την αφομοίωση κάθε ενότητας. Όπου διαπιστωθεί δυσκολία,
+                προστίθενται ώρες ενισχυτικής διδασκαλίας.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="method__num">05</span>
+            <div>
+              <h3>Διαγωνίσματα προσομοίωσης</h3>
+              <p>Ολοκληρωμένα διαγωνίσματα σε συνθήκες Πανελλαδικών εξετάσεων: ίδια διάρκεια, ίδια
+                δομή θεμάτων, ίδια αυστηρότητα στη βαθμολόγηση.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="method__num">06</span>
+            <div>
+              <h3>Ενημέρωση γονέων &amp; προσανατολισμός</h3>
+              <p>Προγραμματισμένες και έκτακτες ενημερώσεις για την πρόοδο του μαθητή, και καθοδήγηση
+                για την επιλογή σχολής με βάση τις δυνατότητες, τα ενδιαφέροντα και την προσωπικότητά του.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
@@ -250,7 +344,7 @@
           <p>Συνεχείς γραπτές εξετάσεις σε συνθήκες πραγματικής προσομοίωσης.</p>
         </article>
 
-        <article class="bento__tile bento__tile--amber reveal">
+        <article class="bento__tile bento__tile--green reveal">
           <span class="bento__icon"><svg class="icon"><use href="#i-compass"/></svg></span>
           <h3>Επαγγελματικός προσανατολισμός</h3>
           <p>Καθοδήγηση για σχολές και επαγγέλματα.</p>
@@ -287,8 +381,8 @@
       <div class="results" id="resultGrid" aria-live="polite"></div>
 
       <p class="results__more reveal">
-        <a class="link-arrow" href="https://www.e-diakrisi.gr/epityhontes" target="_blank" rel="noopener">
-          Δείτε τις πλήρεις λίστες επιτυχόντων 2021 – 2026 <svg class="icon"><use href="#i-arrow"/></svg>
+        <a class="btn btn--outline" href="epityxies.html">
+          Όλοι οι επιτυχόντες 2021 – 2026 <svg class="icon"><use href="#i-arrow"/></svg>
         </a>
       </p>
 
@@ -317,21 +411,49 @@
   </section>
 
   <!-- =========================================================
-       6. ΕΠΙΚΟΙΝΩΝΙΑ + ΦΟΡΜΑ ΕΝΔΙΑΦΕΡΟΝΤΟΣ
+       ΑΝΑΚΟΙΝΩΣΕΙΣ & ΑΡΘΡΑ — από e-diakrisi.gr/anakoinoseis
+       ========================================================= -->
+  <section class="section section--tint" id="anakoinoseis">
+    <div class="container">
+      <header class="section__head section__head--row reveal">
+        <div>
+          <p class="eyebrow">Ανακοινώσεις &amp; Άρθρα</p>
+          <h2>Σκέψεις και οδηγοί για γονείς και υποψηφίους</h2>
+        </div>
+        <a class="btn btn--outline" href="anakoinoseis.html">
+          Όλες οι ανακοινώσεις &amp; τα άρθρα <svg class="icon"><use href="#i-arrow"/></svg>
+        </a>
+      </header>
+
+      <!-- Οι κάρτες γεμίζουν από το articles.js (οι 3 πιο πρόσφατες) -->
+      <div class="posts" id="latestPosts">
+        <noscript><p><a href="anakoinoseis.html">Δείτε όλες τις ανακοινώσεις και τα άρθρα</a></p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. ΕΠΙΚΟΙΝΩΝΙΑ — εγγραφές μόνο με προσωπικό ραντεβού (χωρίς online φόρμα)
        ========================================================= -->
   <section class="section section--dark" id="epikoinonia">
     <div class="container contact">
       <div class="contact__info reveal">
         <p class="eyebrow eyebrow--light">Εγγραφές &amp; Επικοινωνία</p>
-        <h2>Ας γνωριστούμε από κοντά</h2>
-        <p class="contact__lead">Η Διεύθυνση ενημερώνει αναλυτικά εσάς και τον μαθητή. Τα τμήματα είναι περιορισμένα σε αριθμό, γι’ αυτό κλείστε έγκαιρα το ραντεβού σας.</p>
+        <h2>Οι εγγραφές γίνονται με προσωπικό ραντεβού</h2>
+        <p class="contact__lead">Η Διεύθυνση ενημερώνει αναλυτικά τον γονέα και τον μαθητή για το πρόγραμμα, τη μέθοδο και τις απαιτήσεις της χρονιάς. Τα τμήματα είναι περιορισμένα σε αριθμό· καλέστε στη γραμματεία για να ορίσετε ραντεβού.</p>
 
         <ol class="steps">
-          <li><span>1</span><div><strong>Ραντεβού ενημέρωσης</strong>Γνωριμία με τη Διεύθυνση, γονείς και μαθητής μαζί.</div></li>
+          <li><span>1</span><div><strong>Ραντεβού ενημέρωσης</strong>Συνάντηση με τη Διεύθυνση, γονείς και μαθητής μαζί.</div></li>
           <li><span>2</span><div><strong>Σύντομη αξιολόγηση</strong>Βασικές γνώσεις της προηγούμενης τάξης — δεν χρειάζεται ειδική προετοιμασία.</div></li>
           <li><span>3</span><div><strong>Ένταξη σε ομοιογενές τμήμα</strong>Στο επίπεδο και την κατεύθυνση που ταιριάζει στον μαθητή.</div></li>
         </ol>
+      </div>
 
+      <div class="contact__card reveal">
+        <h3>Στοιχεία επικοινωνίας</h3>
+        <a class="btn btn--primary btn--lg btn--block" href="tel:+302109946098">
+          <svg class="icon"><use href="#i-phone"/></svg> Καλέστε: 210 994 6098
+        </a>
         <address class="contact__details">
           <a href="https://maps.app.goo.gl/updVkxyFe89AQV2y7" target="_blank" rel="noopener">
             <svg class="icon"><use href="#i-pin"/></svg>
@@ -350,81 +472,7 @@
             <span><strong>Καθημερινά 15:30 – 21:30</strong>Ώρες λειτουργίας γραμματείας</span>
           </div>
         </address>
-      </div>
-
-      <!-- Φόρμα: ο έλεγχος γίνεται στο script.js. ΠΡΟΣΟΧΗ — πρωτότυπο: τα στοιχεία
-           ΔΕΝ αποστέλλονται πουθενά. Συνδέστε το submit με backend / υπηρεσία φορμών. -->
-      <div class="form-card reveal" id="forma">
-        <form id="leadForm" novalidate>
-          <h3>Δηλώστε ενδιαφέρον</h3>
-          <p class="form-card__sub">Συμπληρώστε τα στοιχεία σας και θα σας καλέσουμε για να ορίσουμε ραντεβού.</p>
-
-          <div class="field">
-            <label for="f-name">Ονοματεπώνυμο γονέα ή μαθητή</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="π.χ. Μαρία Παπαδοπούλου" aria-describedby="e-name" required>
-            <p class="field__error" id="e-name" role="alert"></p>
-          </div>
-
-          <div class="field">
-            <label for="f-phone">Τηλέφωνο επικοινωνίας</label>
-            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="69XXXXXXXX ή 210XXXXXXX" aria-describedby="e-phone" required>
-            <p class="field__error" id="e-phone" role="alert"></p>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="f-grade">Τάξη (σχολ. έτος φοίτησης)</label>
-              <select id="f-grade" name="grade" aria-describedby="e-grade" required>
-                <option value="">Επιλέξτε τάξη</option>
-                <option>Γ΄ Γυμνασίου</option>
-                <option>Α΄ Λυκείου</option>
-                <option data-track>Β΄ Λυκείου</option>
-                <option data-track>Γ΄ Λυκείου</option>
-              </select>
-              <p class="field__error" id="e-grade" role="alert"></p>
-            </div>
-            <div class="field">
-              <label for="f-track">Ομάδα Προσανατολισμού</label>
-              <select id="f-track" name="track" aria-describedby="e-track h-track" disabled>
-                <option value="">Επιλέξτε πεδίο</option>
-                <option>Θετικές &amp; Τεχνολογικές Επιστήμες (2ο)</option>
-                <option>Επιστήμες Υγείας (3ο)</option>
-                <option>Οικονομία &amp; Πληροφορική (4ο)</option>
-                <option>Δεν έχω αποφασίσει ακόμη</option>
-              </select>
-              <p class="field__hint" id="h-track">Συμπληρώνεται για Β΄ και Γ΄ Λυκείου.</p>
-              <p class="field__error" id="e-track" role="alert"></p>
-            </div>
-          </div>
-
-          <fieldset class="field" aria-describedby="e-interest">
-            <legend>Ενδιαφέρομαι για</legend>
-            <div class="pills">
-              <label class="pill"><input type="radio" name="interest" value="Χειμερινό πρόγραμμα"><span>Χειμερινό πρόγραμμα</span></label>
-              <label class="pill"><input type="radio" name="interest" value="Θερινή προετοιμασία"><span>Θερινή προετοιμασία</span></label>
-              <label class="pill"><input type="radio" name="interest" value="Ραντεβού ενημέρωσης"><span>Ραντεβού ενημέρωσης</span></label>
-              <label class="pill"><input type="radio" name="interest" value="Επαγγελματικό προσανατολισμό"><span>Επαγγελματικό προσανατολισμό</span></label>
-            </div>
-            <p class="field__error" id="e-interest" role="alert"></p>
-          </fieldset>
-
-          <button class="btn btn--primary btn--lg btn--block" type="submit">
-            Θέλω να με καλέσετε <svg class="icon"><use href="#i-arrow"/></svg>
-          </button>
-          <p class="form-card__legal">Τα στοιχεία σας χρησιμοποιούνται μόνο για να επικοινωνήσουμε μαζί σας. <a href="https://www.e-diakrisi.gr/privacy-policy" target="_blank" rel="noopener">Πολιτική Απορρήτου</a></p>
-        </form>
-
-        <!-- Κατάσταση επιβεβαίωσης -->
-        <div class="form-success" id="formSuccess" tabindex="-1" hidden>
-          <span class="form-success__icon"><svg class="icon"><use href="#i-check"/></svg></span>
-          <h3>Ευχαριστούμε, <span id="s-name"></span>!</h3>
-          <p>Καταγράψαμε το ενδιαφέρον σας. Θα σας καλέσουμε στο <strong id="s-phone"></strong> τις ώρες γραμματείας (καθημερινά 15:30 – 21:30).</p>
-          <dl class="form-success__summary" id="s-summary"></dl>
-          <div class="form-success__actions">
-            <a class="btn btn--primary" href="tel:+302109946098"><svg class="icon"><use href="#i-phone"/></svg> Καλέστε τώρα</a>
-            <button class="btn btn--ghost" type="button" id="formReset">Νέα δήλωση</button>
-          </div>
-        </div>
+        <p class="contact__note">Η γραμματεία απαντά καθημερινά 15:30 – 21:30. Εκτός ωραρίου, στείλτε μας email με ένα τηλέφωνο επικοινωνίας και θα σας καλέσουμε.</p>
       </div>
     </div>
 
@@ -449,11 +497,10 @@
 <footer class="footer">
   <div class="container footer__grid">
     <div>
-      <a class="brand brand--light" href="#top">
-        <span class="brand__mark" aria-hidden="true">Δ</span>
-        <span class="brand__text"><strong>Διάκριση</strong><small>Για μαθητές που έχουν στόχους</small></span>
+      <a class="footer__logo" href="#top" aria-label="Διάκριση — αρχική">
+        <img src="images/logo-diakrisi.png" alt="Διάκριση — Φροντιστήριο Μέσης Εκπαίδευσης" class="brand__logo" width="227" height="108" loading="lazy">
       </a>
-      <p class="footer__about">Φροντιστήριο Μέσης Εκπαίδευσης στην Αργυρούπολη, από το 2014.</p>
+      <p class="footer__about"><strong>Για μαθητές που έχουν στόχους.</strong> Φροντιστήριο Μέσης Εκπαίδευσης στην Αργυρούπολη, από το 2014.</p>
     </div>
     <nav aria-label="Τάξεις">
       <h4>Τάξεις</h4>
@@ -465,8 +512,8 @@
     </nav>
     <nav aria-label="Χρήσιμα">
       <h4>Χρήσιμα</h4>
-      <a href="https://www.e-diakrisi.gr/epityhontes" target="_blank" rel="noopener">Επιτυχόντες</a>
-      <a href="https://www.e-diakrisi.gr/anakoinoseis" target="_blank" rel="noopener">Ανακοινώσεις</a>
+      <a href="epityxies.html">Επιτυχόντες</a>
+      <a href="anakoinoseis.html">Ανακοινώσεις &amp; Άρθρα</a>
       <a href="https://www.e-diakrisi.gr/syndesmoi" target="_blank" rel="noopener">Επικαιρότητα – Σύνδεσμοι</a>
       <a href="https://odigos.stadiodromia.gr/login.php?cid=7604468E-B8A5-446B-A3AA-A02085F375F2" target="_blank" rel="noopener">Οδηγός Σταδιοδρομίας</a>
     </nav>
@@ -489,11 +536,13 @@
   <a class="action-bar__btn action-bar__btn--call" href="tel:+302109946098">
     <svg class="icon"><use href="#i-phone"/></svg> Κλήση
   </a>
-  <a class="action-bar__btn action-bar__btn--lead" href="#forma">
-    <svg class="icon"><use href="#i-calendar"/></svg> Ενδιαφέρον
+  <a class="action-bar__btn action-bar__btn--lead" href="#epikoinonia">
+    <svg class="icon"><use href="#i-pin"/></svg> Επικοινωνία
   </a>
 </div>
 
-<script src="script.js"></script>
+<script src="results.js?v=7"></script>
+<script src="articles.js?v=7"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
